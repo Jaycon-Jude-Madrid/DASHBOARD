@@ -13,11 +13,15 @@ import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
 
+import { Link } from "react-router-dom";
+
 const Sidebar = () => {
 	return (
 		<div className="sidebar">
 			<div className="top">
-				<span className="logo">TestDashboard</span>
+				<Link to="/" style={{ textDecoration: "none" }}>
+					<span className="logo">Test Dashboard</span>
+				</Link>
 			</div>
 
 			<hr />
@@ -25,20 +29,26 @@ const Sidebar = () => {
 			<div className="center">
 				<ul className="listSidebar">
 					<p className="title">MAIN</p>
-					<li>
-						<DashboardRoundedIcon className="icon" />
-						<span>Dashboard</span>
-					</li>
+					<Link to="/" style={{ textDecoration: "none" }}>
+						<li>
+							<DashboardRoundedIcon className="icon" />
+							<span>Dashboard</span>
+						</li>
+					</Link>
 
-					<li>
-						<PeopleRoundedIcon className="icon" />
-						<span>Users</span>
-					</li>
+					<Link to="/users" style={{ textDecoration: "none" }}>
+						<li>
+							<PeopleRoundedIcon className="icon" />
+							<span>Users</span>
+						</li>
+					</Link>
 
-					<li>
-						<CategoryRoundedIcon className="icon" />
-						<span>Products</span>
-					</li>
+					<Link to="/products" style={{ textDecoration: "none" }}>
+						<li>
+							<CategoryRoundedIcon className="icon" />
+							<span>Products</span>
+						</li>
+					</Link>
 
 					<li>
 						<StorefrontRoundedIcon className="icon" />

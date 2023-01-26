@@ -4,6 +4,7 @@ import Login from "./pages/login/Login"
 import List from "./pages/list/List"
 import New from "./pages/new/New"
 import Single from "./pages/single/Single"
+import "./style/dark.scss"
 
 import {
   BrowserRouter,
@@ -15,7 +16,7 @@ import { userInputs } from "./formSource"
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <BrowserRouter>
         <Routes>
           <Route path="/">

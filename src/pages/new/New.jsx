@@ -3,8 +3,11 @@ import "./new.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import { DriveFolderUploadRounded } from "@mui/icons-material";
+import { useState } from "react";
 
 const New = ({ inputs, title }) => {
+	const [file, setFile] = useState("");
+
 	return (
 		<div className="new">
 			<Sidebar />
@@ -18,8 +21,12 @@ const New = ({ inputs, title }) => {
 				<div className="bottom">
 					<div className="left">
 						<img
-							src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png"
-							alt="ImageNo"
+							src={
+								file
+									? URL.createObjectUrl(file)
+									: "https://img.freepik.com/premium-vector/head-silhouette-vector-illustration_97886-14450.jpg?w=2000"
+							}
+							alt="user"
 						/>
 					</div>
 					<div className="right">
@@ -34,6 +41,7 @@ const New = ({ inputs, title }) => {
 									id="file"
 									style={{ display: "none" }}
 									placeholder="dagnay"
+									onChange={(e) => setFile(e.target.files[0])}
 								/>
 							</div>
 
