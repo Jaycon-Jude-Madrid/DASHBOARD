@@ -11,6 +11,8 @@ import {
   Route,
 } from "react-router-dom"
 
+import { userInputs } from "./formSource"
+
 function App() {
   return (
     <div className="App">
@@ -23,7 +25,7 @@ function App() {
             <Route path="users">
               <Route index element={<List />} />
               <Route path=":userId" element={<Single />} />
-              <Route path="new" element={<New />} />
+              <Route path="new" element={<New inputs={userInputs} title="Add new User" />} />
             </Route>
 
             <Route path="products">

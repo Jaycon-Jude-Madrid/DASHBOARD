@@ -8,7 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-const List = () => {
+const ListTable = () => {
 	const rows = [
 		{
 			id: 1234567,
@@ -83,4 +83,4 @@ const List = () => {
 	);
 };
 
-export default List;
+export default ListTable;

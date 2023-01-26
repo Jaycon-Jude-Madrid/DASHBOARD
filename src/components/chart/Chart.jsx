@@ -2,14 +2,14 @@ import "./chart.scss";
 
 import {
 	AreaChart,
-	LineChart,
-	Line,
+	// LineChart,
+	// Line,
 	Area,
 	XAxis,
-	YAxis,
+	// YAxis,
 	CartesianGrid,
 	Tooltip,
-	Legend,
+	// Legend,
 	ResponsiveContainer,
 } from "recharts";
 
@@ -36,12 +36,13 @@ const data = [
 	},
 ];
 
-const Chart = () => {
+// the prop aspect is used to set the height of the chart
+const Chart = ({ aspect, title }) => {
 	return (
 		<div className="chart">
-			<div className="title">Last 5 months of Revenue</div>
+			<div className="title">{title}</div>
 			{/* aspect: if the width is 100% the height will be twice of it */}
-			<ResponsiveContainer width="100%" aspect={2 / 1}>
+			<ResponsiveContainer width="100%" aspect={aspect}>
 				<AreaChart width={730} height={250} data={data}>
 					<defs>
 						<linearGradient id="total" x1="0" y1="0" x2="0" y2="1">
