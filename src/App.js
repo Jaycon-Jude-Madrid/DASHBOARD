@@ -10,30 +10,58 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  Navigate,
 } from "react-router-dom"
 
 import { userInputs } from "./formSource"
+import { useContext } from "react"
+import { AuthContext } from "./context/AuthContext"
 
 function App() {
+
+  const { currentUser } = useContext(AuthContext);
+
+  const RequireAuth = ({ children }) => {
+    return currentUser ? children : <Navigate to="/login" />
+  };
+
+  console.log(currentUser)
+
   return (
     <div className="app">
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
+            {/* require users to login asd */}
+            <Route index element={<RequireAuth> <Home /> </RequireAuth>} />
 
             <Route path="users">
-              <Route index element={<List />} />
-              <Route path=":userId" element={<Single />} />
-              <Route path="new" element={<New inputs={userInputs} title="Add new User" />} />
+              <Route index element={
+                <RequireAuth>
+                  <List />
+                </RequireAuth>
+              }
+
+              />
+              <Route path=":userId" element={
+                <RequireAuth>
+                  <Single />
+                </RequireAuth>
+              } />
+              <Route path="new" element={
+                <RequireAuth>
+                  <New inputs={userInputs}
+                    title="Add new User" />
+                </RequireAuth>
+              } />
             </Route>
 
-            <Route path="products">
+            {/* <Route path="products">
               <Route index element={<List />} />
               <Route path=":productId" element={<Single />} />
               <Route path="new" element={<New />} />
-            </Route>
+            </Route> */}
 
           </Route>
         </Routes>
