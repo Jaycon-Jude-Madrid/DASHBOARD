@@ -1,48 +1,48 @@
 export const userInputs = [
     {
-        id: 1,
+        id: "name",
         label: "Name and Surname",
         type: "text",
         placeholder: "Enter your name and surname",
     },
 
     {
-        id: 2,
+        id: "email",
         label: "Email",
         type: "email",
         placeholder: "Enter your email",
     },
 
     {
-        id: 3,
+        id: "password",
         label: "Password",
         type: "password",
         placeholder: "Enter your password",
     },
 
     {
-        id: 4,
+        id: "phoneNumber",
         label: "Phone number",
         type: "tel",
         placeholder: "Enter your number",
     },
 
     {
-        id: 5,
+        id: "username",
         label: "Username",
         type: "text",
         placeholder: "Enter your username",
     },
 
     {
-        id: 6,
+        id: "address",
         label: "Address",
         type: "text",
         placeholder: "Enter your address",
     },
 
     {
-        id: 7,
+        id: "country",
         label: "House number",
         type: "text",
         placeholder: "Enter your house number",
