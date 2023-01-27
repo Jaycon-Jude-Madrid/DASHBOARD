@@ -15,12 +15,12 @@ const Home = () => {
 			<div className="homeContainer">
 				<Navbar />
 
-				<div className="widgets">
+				{/* <div className="widgets">
 					<Widgets type="user" />
 					<Widgets type="order" />
 					<Widgets type="earning" />
 					<Widgets type="balance" />
-				</div>
+				</div> */}
 
 				<div className="charts">
 					<Featured />
