@@ -6,6 +6,7 @@ import Widgets from "../../components/widgets/Widgets";
 import Chart from "../../components/chart/Chart";
 import Featured from "../../components/featured/Featured";
 import Table from "../../components/table/Table";
+import Datatable from "../../components/datatable/Datatable";
 
 const Home = () => {
 	return (
@@ -27,10 +28,12 @@ const Home = () => {
 					<Chart aspect={2 / 1} title="All in All" />
 				</div>
 
+				{/* <Table /> remove table replace by datatable */}
 				<div className="listContainer">
-					<div className="listTitle">Latest Transactions</div>
-					<Table />
+					{/* <div className="listTitle">Latest Transactions</div> */}
 				</div>
+
+				<Datatable />
 			</div>
 		</div>
 	);

@@ -7,6 +7,9 @@
 
 		.top,
 		.bottom {
+			display: flex;
+			flex-direction: column;
+
 			-webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
 			box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
 			padding: 10px;
@@ -16,27 +19,29 @@
 				color: lightgray;
 			}
 
-			display: flex;
+			// left with image styles
 
-			.left {
-				flex: 1;
-				text-align: center;
+			// .left {
+			// 	flex: 2;
+			// 	text-align: center;
 
-				img {
-					width: 100px;
-					height: 100px;
-					border-radius: 50%;
-					object-fit: cover;
-				}
-			}
+			// 	img {
+			// 		width: 100px;
+			// 		height: 100px;
+			// 		border-radius: 50%;
+			// 		object-fit: cover;
+			// 	}
+			// }
 
 			.right {
 				flex: 2;
+				padding: 30px;
 
 				form {
 					display: flex;
 					flex-wrap: wrap;
-					justify-content: space-around;
+					justify-content: center;
+					align-items: center;
 					gap: 25px;
 
 					.formInput {
@@ -60,6 +65,13 @@
 							outline: none;
 						}
 					}
+				}
+
+				.buttonCenter {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					margin-top: 10px;
 
 					button {
 						width: 150px;
@@ -69,6 +81,7 @@
 						color: white;
 						font-weight: bold;
 						cursor: pointer;
+						border-radius: 5px;
 						margin-top: 12px;
 					}
 				}

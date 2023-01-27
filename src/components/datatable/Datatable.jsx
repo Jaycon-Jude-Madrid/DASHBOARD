@@ -14,6 +14,7 @@ import { db } from "../../firebase";
 
 import { useEffect, useState } from "react";
 
+// This Datatable is on for the Users page
 const Datatable = () => {
 	const [data, setData] = useState([]);
 
@@ -34,7 +35,6 @@ const Datatable = () => {
 		// fetchData();
 
 		// LISTEN REALTIME
-
 		const unsub = onSnapshot(
 			collection(db, "users"),
 			(snapShot) => {

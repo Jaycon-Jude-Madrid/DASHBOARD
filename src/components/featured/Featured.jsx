@@ -8,7 +8,7 @@ const Featured = () => {
 	return (
 		<div className="featured">
 			<div className="top">
-				<h1 className="title">Total Revenue</h1>
+				<h1 className="title">Total Accumulated Plastics</h1>
 				<MoreVertRounded fontSize="small" />
 			</div>
 
@@ -16,8 +16,8 @@ const Featured = () => {
 				<div className="featuredChart">
 					<CircularProgressbar value={70} text={"90%"} strokeWidth={5} />
 				</div>
-				<p className="title">Total sales made today</p>
-				<p className="amount">$420</p>
+				<p className="title">Number of plastics</p>
+				<p className="amount">420</p>
 				<p className="desc">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
 					ratione.

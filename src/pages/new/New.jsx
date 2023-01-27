@@ -13,11 +13,14 @@ import {
 	serverTimestamp,
 	setDoc,
 } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const New = ({ inputs, title }) => {
 	const [file, setFile] = useState("");
 	const [data, setData] = useState({});
+	const navigate = useNavigate();
 
+	//
 	const handleInput = (e) => {
 		const id = e.target.id;
 		const value = e.target.value;
@@ -27,6 +30,7 @@ const New = ({ inputs, title }) => {
 
 	console.log(data);
 
+	// add a new user to the database when the form is submitted
 	const handleAdd = async (e) => {
 		e.preventDefault();
 
@@ -36,6 +40,8 @@ const New = ({ inputs, title }) => {
 				...data,
 				timeStamp: serverTimestamp(),
 			});
+
+			navigate(-1); // go back to the previous page
 		} catch (error) {
 			console.log(error);
 		}
@@ -53,31 +59,33 @@ const New = ({ inputs, title }) => {
 
 				<div className="bottom">
 					<div className="left">
-						<img
+						{/* temporary removes an image  */}
+						{/* <img
 							src={
 								file
 									? URL.createObjectUrl(file)
 									: "https://img.freepik.com/premium-vector/head-silhouette-vector-illustration_97886-14450.jpg?w=2000"
 							}
 							alt="user"
-						/>
+						/> */}
 					</div>
-					<div className="right">
-						<form onSubmit={handleAdd}>
-							<div className="formInput">
-								<label htmlFor="file">
+
+					{/* temporary removes adding an image */}
+					<div className="formInput">
+						{/* <label htmlFor="file">
 									Image: <DriveFolderUploadRounded className="icon" />
-								</label>
-								{/* the id="file" connects to the htmlFor="file"   */}
-								<input
+								</label> */}
+						{/* the id="file" connects to the htmlFor="file"   */}
+						{/* <input
 									type="file"
 									id="file"
 									style={{ display: "none" }}
 									placeholder="dagnay"
 									onChange={(e) => setFile(e.target.files[0])}
-								/>
-							</div>
-
+								/> */}
+					</div>
+					<div className="right">
+						<form onSubmit={handleAdd}>
 							{inputs.map((input) => (
 								<div className="formInput" key={input.id}>
 									<label>{input.label}</label>
@@ -90,7 +98,9 @@ const New = ({ inputs, title }) => {
 								</div>
 							))}
 
-							<button type="submit">Submit</button>
+							<div className="buttonCenter">
+								<button type="submit">Submit</button>
+							</div>
 						</form>
 					</div>
 				</div>

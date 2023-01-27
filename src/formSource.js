@@ -6,12 +6,12 @@ export const userInputs = [
         placeholder: "Enter your name and surname",
     },
 
-    {
-        id: "email",
-        label: "Email",
-        type: "email",
-        placeholder: "Enter your email",
-    },
+    // {
+    //     id: "email",
+    //     label: "Email",
+    //     type: "email",
+    //     placeholder: "Enter your email",
+    // },
 
     {
         id: "password",
@@ -27,12 +27,12 @@ export const userInputs = [
         placeholder: "Enter your number",
     },
 
-    {
-        id: "username",
-        label: "Username",
-        type: "text",
-        placeholder: "Enter your username",
-    },
+    // {
+    //     id: "username",
+    //     label: "Username",
+    //     type: "text",
+    //     placeholder: "Enter your username",
+    // },
 
     {
         id: "address",
@@ -42,7 +42,7 @@ export const userInputs = [
     },
 
     {
-        id: "country",
+        id: "houseNumber",
         label: "House number",
         type: "text",
         placeholder: "Enter your house number",
