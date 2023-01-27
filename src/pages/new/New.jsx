@@ -4,9 +4,42 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import { DriveFolderUploadRounded } from "@mui/icons-material";
 import { useState } from "react";
+import { async } from "@firebase/util";
+import { auth, db } from "../../firebase";
+import {
+	addDoc,
+	collection,
+	doc,
+	serverTimestamp,
+	setDoc,
+} from "firebase/firestore";
 
 const New = ({ inputs, title }) => {
 	const [file, setFile] = useState("");
+	const [data, setData] = useState({});
+
+	const handleInput = (e) => {
+		const id = e.target.id;
+		const value = e.target.value;
+
+		setData({ ...data, [id]: value });
+	};
+
+	console.log(data);
+
+	const handleAdd = async (e) => {
+		e.preventDefault();
+
+		// Add a new document in collection "cities"
+		try {
+			await addDoc(collection(db, "users"), {
+				...data,
+				timeStamp: serverTimestamp(),
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	return (
 		<div className="new">
@@ -30,7 +63,7 @@ const New = ({ inputs, title }) => {
 						/>
 					</div>
 					<div className="right">
-						<form>
+						<form onSubmit={handleAdd}>
 							<div className="formInput">
 								<label htmlFor="file">
 									Image: <DriveFolderUploadRounded className="icon" />
@@ -48,11 +81,16 @@ const New = ({ inputs, title }) => {
 							{inputs.map((input) => (
 								<div className="formInput" key={input.id}>
 									<label>{input.label}</label>
-									<input type={input.type} placeholder={input.placeholder} />
+									<input
+										type={input.type}
+										placeholder={input.placeholder}
+										onChange={handleInput}
+										id={input.id}
+									/>
 								</div>
 							))}
 
-							<button>Submit</button>
+							<button type="submit">Submit</button>
 						</form>
 					</div>
 				</div>
