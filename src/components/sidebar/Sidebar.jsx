@@ -43,7 +43,7 @@ const Sidebar = () => {
 						</li>
 					</Link>
 
-					<Link to="/products" style={{ textDecoration: "none" }}>
+					{/* <Link to="/products" style={{ textDecoration: "none" }}>
 						<li>
 							<CategoryRoundedIcon className="icon" />
 							<span>Products</span>
@@ -92,7 +92,7 @@ const Sidebar = () => {
 					<li>
 						<AccountCircleRoundedIcon className="icon" />
 						<span>Profile</span>
-					</li>
+					</li> */}
 
 					<li>
 						<ExitToAppRoundedIcon className="icon" />
