@@ -1,0 +1,44 @@
+.totalTable {
+  .total.overAll {
+    font-size: 800;
+    font-weight: 800;
+  }
+  .total {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+    input {
+      border: none;
+      border-bottom: 1px solid black;
+      text-align: center;
+    }
+  }
+
+  .button_checkout {
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+
+    input {
+      text-align: center;
+      border: none;
+      font-size: 12px;
+    }
+
+    button {
+      margin-bottom: 20px;
+      width: 200px;
+      padding: 10px;
+      border: none;
+      font-size: 16px;
+      font-weight: 500;
+      background-color: #59d983;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

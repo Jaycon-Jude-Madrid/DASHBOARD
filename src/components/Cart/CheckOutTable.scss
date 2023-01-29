@@ -1,0 +1,14 @@
+.actions {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+  button {
+    cursor: pointer;
+    border: navajowhite;
+    font-size: 15px;
+    .icon {
+      color: red;
+    }
+  }
+}

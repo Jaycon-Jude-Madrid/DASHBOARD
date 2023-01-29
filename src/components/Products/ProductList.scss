@@ -1,0 +1,21 @@
+.inputs {
+  display: flex;
+  justify-content: end;
+  padding: 10px;
+  .inputContainer {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    border: 1px solid lightgray;
+    width: 200px;
+    border-radius: 3px;
+
+    .icons {
+      color: #1976d2;
+    }
+  }
+  input {
+    border: none;
+    outline: none;
+  }
+}
