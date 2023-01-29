@@ -16,34 +16,34 @@ import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
-	return (
-		<div className="sidebar">
-			<div className="top">
-				<Link to="/" style={{ textDecoration: "none" }}>
-					<span className="logo">Test Dashboard</span>
-				</Link>
-			</div>
+  return (
+    <div className="sidebar">
+      <div className="top">
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <span className="logo">Test Dashboard</span>
+        </Link>
+      </div>
 
-			<hr />
+      <hr />
 
-			<div className="center">
-				<ul className="listSidebar">
-					<p className="title">MAIN</p>
-					<Link to="/" style={{ textDecoration: "none" }}>
-						<li>
-							<DashboardRoundedIcon className="icon" />
-							<span>Dashboard</span>
-						</li>
-					</Link>
+      <div className="center">
+        <ul className="listSidebar">
+          <p className="title">MAIN</p>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <li>
+              <DashboardRoundedIcon className="icon" />
+              <span>Dashboard/Sales</span>
+            </li>
+          </Link>
 
-					<Link to="/users" style={{ textDecoration: "none" }}>
-						<li>
-							<PeopleRoundedIcon className="icon" />
-							<span>Users</span>
-						</li>
-					</Link>
+          <Link to="/customers" style={{ textDecoration: "none" }}>
+            <li>
+              <PeopleRoundedIcon className="icon" />
+              <span>Customers</span>
+            </li>
+          </Link>
 
-					{/* <Link to="/products" style={{ textDecoration: "none" }}>
+          {/* <Link to="/products" style={{ textDecoration: "none" }}>
 						<li>
 							<CategoryRoundedIcon className="icon" />
 							<span>Products</span>
@@ -94,20 +94,20 @@ const Sidebar = () => {
 						<span>Profile</span>
 					</li> */}
 
-					<li>
-						<ExitToAppRoundedIcon className="icon" />
-						<span>Logout</span>
-					</li>
-				</ul>
-			</div>
+          <li>
+            <ExitToAppRoundedIcon className="icon" />
+            <span>Logout</span>
+          </li>
+        </ul>
+      </div>
 
-			<div className="bottom">
-				<div className="colorOption"></div>
+      <div className="bottom">
+        <div className="colorOption"></div>
 
-				<div className="colorOption"></div>
-			</div>
-		</div>
-	);
+        <div className="colorOption"></div>
+      </div>
+    </div>
+  );
 };
 
 export default Sidebar;
