@@ -1,9 +1,11 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import { useTransactionsContext } from "../../Hooks/useTransactionsContext";
+import { useGetData } from "../../Hooks/useGetData";
+import { useEffect } from "react";
 
 const style = {
   position: "absolute",
@@ -17,17 +19,25 @@ const style = {
   p: 4,
 };
 
-export const RecentTransactionModal = ({ id }) => {
+export const RecentTransactionModal = () => {
+  const { ID } = useTransactionsContext();
+
+  const { getRecentTransactionsData } = useGetData();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  useEffect(() => {
+    if (ID) {
+      getRecentTransactionsData(ID);
+    }
+  }, [ID]);
   return (
     <div>
-      <button onClick={handleOpen}>
+      <p onClick={() => handleOpen()}>
         {" "}
         View <ReceiptLongIcon />
-      </button>
+      </p>
 
       <Modal
         open={open}

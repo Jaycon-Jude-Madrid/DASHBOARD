@@ -13,7 +13,6 @@ root.render(
         <App />
       </CustomerContextProvider>
     </ProductContextProvider>
-
   </TransactionsContextProvider>
 
 );

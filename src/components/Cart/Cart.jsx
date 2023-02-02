@@ -2,14 +2,15 @@ import * as React from "react";
 import "./Cart.scss";
 import Box from "@mui/material/Box";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import Typography from "@mui/material/Typography";
+import { useCustomerContext } from "../../Hooks/useCustomerContext";
+
 import Modal from "@mui/material/Modal";
 import CheckOutTable from "./CheckOutTable";
 import TotalTable from "./TotalTable";
 
 const style = {
   position: "absolute",
-  top: "40%",
+  top: "45%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: "50%",
@@ -19,10 +20,14 @@ const style = {
 };
 
 export default function Cart() {
+  const { customers, setCustomer, customer } = useCustomerContext();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const handleChange = (e) => {
+    setCustomer(e.target.value);
+  };
   return (
     <div>
       <ShoppingCartIcon
@@ -41,12 +46,15 @@ export default function Cart() {
             <div className="top">
               <p className="title">Checkout</p>
               <p className="selectLabel">Add Customer</p>
-              <select>
-                <option> Walk-In-Customer </option>
-                <option> Rosalie</option>
-                <option> Jessa Mae </option>
-                <option> Jaycon Jude</option>
-                <option>Clint</option>
+              <select onChange={handleChange} value={customer}>
+                <option value={null}>- Select Customer -</option>
+                <option value="Walk In Customer">Walk In Customer</option>
+                {customers?.map((item) => (
+                  <option key={item} value={item.Name}>
+                    {" "}
+                    {item.Name}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="center">

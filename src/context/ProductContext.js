@@ -4,12 +4,15 @@ import { toast } from 'react-toastify';
 
 export const ProductContext = createContext()
 
+
 export const ProductContextProvider = ({
     children,
 }) => {
+
     const [filteredList, setFilteredList] = useState(PRODUCT);
     const [price, setPrice] = useState(0)
     const [cart, setCart] = useState([]);
+
 
 
     const handleClick = (item) => {
@@ -41,6 +44,7 @@ export const ProductContextProvider = ({
 
         if (tempArr[ind].amount === 0)
             tempArr[ind].amount = 1;
+
         setCart([...tempArr])
     }
 
@@ -64,7 +68,7 @@ export const ProductContextProvider = ({
     const handlePrice = () => {
         let ans = 0;
         cart.map((item) => {
-            ans += item.amount * item.price
+            return ans += item.amount * item.price
         }
         )
         setPrice(ans)
@@ -72,7 +76,7 @@ export const ProductContextProvider = ({
 
     useEffect(() => {
         handlePrice();
-    }, [cart])
+    }, [cart,])
     return (
         <ProductContext.Provider value={{ cart, setCart, handleChange, handleClick, handleRemove, filteredList, filterBySearch, price }}>
             {children}

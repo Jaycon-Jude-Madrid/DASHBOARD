@@ -1,18 +1,11 @@
 import "./sidebar.scss";
-
+import WarehouseIcon from "@mui/icons-material/Warehouse";
 import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
 import PeopleRoundedIcon from "@mui/icons-material/PeopleRounded";
-import CategoryRoundedIcon from "@mui/icons-material/CategoryRounded";
-import StorefrontRoundedIcon from "@mui/icons-material/StorefrontRounded";
-import LocalShippingRoundedIcon from "@mui/icons-material/LocalShippingRounded";
-import QueryStatsRoundedIcon from "@mui/icons-material/QueryStatsRounded";
-import CircleNotificationsRoundedIcon from "@mui/icons-material/CircleNotificationsRounded";
-import SettingsSystemDaydreamRoundedIcon from "@mui/icons-material/SettingsSystemDaydreamRounded";
-import PsychologyRoundedIcon from "@mui/icons-material/PsychologyRounded";
-import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
-import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
-
+import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import BarChartIcon from "@mui/icons-material/BarChart";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
@@ -28,18 +21,43 @@ const Sidebar = () => {
 
       <div className="center">
         <ul className="listSidebar">
-          <p className="title">MAIN</p>
+          <p className="title">SALES</p>
           <Link to="/" style={{ textDecoration: "none" }}>
             <li>
               <DashboardRoundedIcon className="icon" />
               <span>Dashboard/Sales</span>
             </li>
           </Link>
-
+          <p className="title">MAIN</p>
           <Link to="/customers" style={{ textDecoration: "none" }}>
             <li>
               <PeopleRoundedIcon className="icon" />
               <span>Customers</span>
+            </li>
+          </Link>
+          <Link to="/products" style={{ textDecoration: "none" }}>
+            <li>
+              <ShoppingCartIcon className="icon" />
+              <span>Products</span>
+            </li>
+          </Link>
+          <Link to="/transactions" style={{ textDecoration: "none" }}>
+            <li>
+              <ReceiptLongIcon className="icon" />
+              <span>Transactions</span>
+            </li>
+          </Link>
+          <Link to="/inventory" style={{ textDecoration: "none" }}>
+            <li>
+              <WarehouseIcon className="icon" />
+              <span>Inventory</span>
+            </li>
+          </Link>
+          <p className="title">STATISTICS</p>
+          <Link to="/products" style={{ textDecoration: "none" }}>
+            <li>
+              <BarChartIcon className="icon" />
+              <span>Statistics</span>
             </li>
           </Link>
 
@@ -93,19 +111,10 @@ const Sidebar = () => {
 						<AccountCircleRoundedIcon className="icon" />
 						<span>Profile</span>
 					</li> */}
-
-          <li>
-            <ExitToAppRoundedIcon className="icon" />
-            <span>Logout</span>
-          </li>
         </ul>
       </div>
 
-      <div className="bottom">
-        <div className="colorOption"></div>
-
-        <div className="colorOption"></div>
-      </div>
+      <div className="bottom"></div>
     </div>
   );
 };

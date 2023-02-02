@@ -2,11 +2,13 @@ import React from "react";
 import "./TotalTable.scss";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useProductContext } from "../../Hooks/useProductContext";
-import { useAddTransactions } from "../../Hooks/useAddTransactions";
+import { useAdd } from "../../Hooks/useAdd";
+import { useCustomerContext } from "../../Hooks/useCustomerContext";
 
 const TotalTable = () => {
   const { price, cart } = useProductContext();
-  const { addRecentTransactions } = useAddTransactions();
+  const { customer } = useCustomerContext();
+  const { addRecentTransactions } = useAdd();
 
   return (
     <div className="totalTable">
@@ -25,7 +27,7 @@ const TotalTable = () => {
         <p>₱ {price}</p>
       </div>
       <div className="button_checkout">
-        <button onClick={() => addRecentTransactions(cart)}>
+        <button onClick={() => addRecentTransactions(cart, price, customer)}>
           Check Out <ShoppingCartIcon />
         </button>
       </div>

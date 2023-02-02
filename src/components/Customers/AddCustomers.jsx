@@ -15,7 +15,6 @@ export const AddCustomers = () => {
           <CustomersTable />
         </div>
       </div>
-      <div className="bottom"></div>
     </div>
   );
 };

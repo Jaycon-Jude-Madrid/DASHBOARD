@@ -1,7 +1,7 @@
 
 import Home from "./pages/Home/Home"
 import "./style/dark.scss"
-import Customers from "./pages/Customer/Customers"
+import Customers from "./pages/Customers/Customers"
 import {
   BrowserRouter,
   Routes,
@@ -10,6 +10,9 @@ import {
 } from "react-router-dom"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Products } from "./pages/Products/Products";
+import { Transactions } from "./pages/Transactions/Transactions";
+import { Inventory } from "./pages/Inventory/Inventory";
 
 
 function App() {
@@ -23,14 +26,14 @@ function App() {
             <Route path="customers">
               <Route index element={<Customers />} />
             </Route>
-            <Route path="Products">
-              <Route index element={<Home />} />
+            <Route path="products">
+              <Route index element={<Products />} />
             </Route>
-            <Route path="Inventory">
-              <Route index element={<Home />} />
+            <Route path="inventory">
+              <Route index element={<Inventory />} />
             </Route>
-            <Route path="Transaction">
-              <Route index element={<Home />} />
+            <Route path="transactions">
+              <Route index element={<Transactions />} />
             </Route>
           </Route>
         </Routes>

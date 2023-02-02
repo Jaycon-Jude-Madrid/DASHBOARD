@@ -1,5 +1,6 @@
 import "./navbar.scss";
 import Cart from "../Cart/Cart";
+import AjMadz from "../../Images/AjMadz.jpg";
 import { useProductContext } from "../../Hooks/useProductContext";
 const Navbar = () => {
   const { cart } = useProductContext();
@@ -14,11 +15,7 @@ const Navbar = () => {
 
           <div className="item">
             Admin | Jaycon Jude C. Madrid
-            <img
-              src="https://images.pexels.com/photos/14922901/pexels-photo-14922901.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-              alt="avatar"
-              className="avatar"
-            />
+            <img src={AjMadz} alt="avatar" className="avatar" />
           </div>
         </div>
       </div>
