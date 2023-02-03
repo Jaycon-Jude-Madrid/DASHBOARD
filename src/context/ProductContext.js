@@ -10,9 +10,11 @@ export const ProductContextProvider = ({
 }) => {
 
     const [filteredList, setFilteredList] = useState(PRODUCT);
-    const [price, setPrice] = useState(0)
+    const [price, setPrice] = useState(null)
     const [cart, setCart] = useState([]);
 
+    const [progress, setProgress] = useState(0)
+    const [url, setUrl] = useState()
 
 
     const handleClick = (item) => {
@@ -64,21 +66,24 @@ export const ProductContextProvider = ({
         // Trigger render with updated values
         setFilteredList(updatedList);
     };
-
+    let value
     const handlePrice = () => {
         let ans = 0;
         cart.map((item) => {
-            return ans += item.amount * item.price
+            ans += item.amount * item.price
+
+
         }
         )
         setPrice(ans)
     }
 
+
     useEffect(() => {
         handlePrice();
     }, [cart,])
     return (
-        <ProductContext.Provider value={{ cart, setCart, handleChange, handleClick, handleRemove, filteredList, filterBySearch, price }}>
+        <ProductContext.Provider value={{ cart, setCart, handleChange, handleClick, handleRemove, filteredList, filterBySearch, price, progress, setProgress, url, setUrl }}>
             {children}
         </ProductContext.Provider>
     );

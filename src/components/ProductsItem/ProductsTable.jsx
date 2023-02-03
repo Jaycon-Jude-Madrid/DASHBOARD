@@ -2,28 +2,32 @@ import React, { useState } from "react";
 
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
-import { Button } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function ProductsTable() {
   const columns = [
     { field: "id", headerName: "ID", width: 190 },
     {
       field: "Name",
-      headerName: "Name",
+      headerName: "Product Name",
       width: 200,
       editable: true,
     },
     {
-      field: "Location",
-      headerName: "Location",
-      width: 350,
+      field: "ImageUrl",
+      headerName: "Product Image",
+      width: 200,
       editable: true,
     },
     {
-      field: "Contact",
-      headerName: "Contact",
-      width: 250,
+      field: "Price",
+      headerName: "Price",
+      width: 150,
+      editable: true,
+    },
+    {
+      field: "Category",
+      headerName: "Category",
+      width: 200,
       editable: true,
     },
 

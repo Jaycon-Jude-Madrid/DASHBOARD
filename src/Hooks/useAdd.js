@@ -2,15 +2,16 @@
 import { doc, setDoc, Timestamp, } from "firebase/firestore";
 import { v4 as uuid } from "uuid";
 import { useProductContext } from './useProductContext'
-
 import { db } from "../Firebase-config";
-
 import { toast } from "react-toastify";
 import { useCustomerContext } from "./useCustomerContext";
 import { MONTH } from "../Utilities/Date";
+import { storage } from "../Firebase-config";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+
 export const useAdd = () => {
 
-    const { setCart, cart } = useProductContext();
+    const { setCart, cart, setProgress, url, setUrl } = useProductContext();
     const { setCustomer, customers } = useCustomerContext();
     const id = uuid();
     ;
@@ -77,6 +78,37 @@ export const useAdd = () => {
             console.log(error.message)
         }
     }
-    return { addRecentTransactions, addCustomer }
+
+    const uploadFiles = (file) => {
+        if (!file) {
+            toast.warning('Please add an image')
+        }
+        const storageRef = ref(storage, `/Product-Images/${file.name}`)
+        const uploadTask = uploadBytesResumable(storageRef, file)
+
+        uploadTask.on('State Changed', (snapshot) => {
+            const prog = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+
+            setProgress(prog)
+        }, (err) => {
+            console.log(err)
+        }, () => {
+            getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                setUrl(url)
+            })
+
+        })
+
+    }
+    const addProduct = async (name) => {
+
+        await setDoc(doc(db, "Products", id,), {
+            Productname: name,
+            imageUrl: url,
+            Timestamp: Timestamp.fromDate(new Date())
+        });
+    }
+
+    return { addRecentTransactions, addCustomer, uploadFiles, addProduct }
 }
 

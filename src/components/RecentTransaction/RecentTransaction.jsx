@@ -14,7 +14,6 @@ const Featured = () => {
         <h1 className="title">Recent Transaction History</h1>
 
         <h2 className="view">
-          {" "}
           <Link to="/transactions">View All Transaction</Link>
         </h2>
       </div>
@@ -27,6 +26,7 @@ const Featured = () => {
           return (
             <div className="recent_transaction" key={index}>
               <p>{item.customer}</p>
+
               <p>{date.slice(0, 15)}</p>
               <button onClick={() => getId(item.id)}>
                 <RecentTransactionModal />
